@@ -1,6 +1,6 @@
 #!/user/bin/env python3
 # -*- coding: utf-8 -*-
-' a test module '
+' a test module ' 
 
 class Student(object):
     def __init__(self,name,score):
