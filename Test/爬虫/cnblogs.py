@@ -43,7 +43,7 @@ def saveHtml(content):
 
 
 def main():
-    liTemp = ''
+    liTemp = '' 
     for pNumber in range(1, 201):
         print('正在解析第%s页......' % pNumber)
         html = url_open(pNumber).decode('utf-8')
