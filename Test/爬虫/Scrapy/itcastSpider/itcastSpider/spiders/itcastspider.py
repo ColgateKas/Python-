@@ -13,7 +13,7 @@ class ItcastSpider(scrapy.Spider):
         #    f.write(response.body)
         #通过xpath获取所有老师的列表集合
         teacher_list = response.xpath('//div[@class="li_txt"]')
-        teacherItem = []
+        #teacherItem = []
         for each in teacher_list:
             item = ItcastItem()
             name = each.xpath('./h3/text()').extract()
@@ -23,5 +23,7 @@ class ItcastSpider(scrapy.Spider):
             item['name'] = name[0]
             item['title'] = title[0]
             item['info'] = info[0]
-            teacherItem.append(item)
-        return teacherItem
+
+            yield item
+            #teacherItem.append(item)
+        #return teacherItem
