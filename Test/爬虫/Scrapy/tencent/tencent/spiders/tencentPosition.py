@@ -12,8 +12,8 @@ class TencentpositionSpider(scrapy.Spider):
 
     def parse(self, response):
         each_line = response.xpath('//tr[@class="even"]|//tr[@class="odd"]')
-        item = TencentItem()
         for each in each_line:
+            item = TencentItem()
             #职位名称
             item['positionName'] = each.xpath("./td[1]/a/text()").extract_first()
             #职位链接
