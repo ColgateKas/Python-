@@ -23,6 +23,28 @@ MONGODB_DBNAME = 'Douban'
 #表名
 MONGODB_SHEETNAME = 'doubanmovies'
 
+# LOG_FILE = 'douban.log'
+# LOG_LEVEL = 'DEBUG'
+
+USER_AGENTS = [
+    'Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_8; en-us) AppleWebKit/534.50 (KHTML, like Gecko) Version/5.1 Safari/534.50',
+    'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)',
+    'Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.0; Trident/4.0)',
+    'Mozilla/5.0 (Windows NT 6.1; rv:2.0.1) Gecko/20100101 Firefox/4.0.1',
+    'Opera/9.80 (Windows NT 6.1; U; en) Presto/2.8.131 Version/11.11'
+]
+
+PROXIES = [
+    # {
+    #     'ip_prot': '121.42.140.113:16816',
+    #     'user_passwd': 'test:123'
+    # },
+    {
+        'ip_prot': '222.208.210.56:8080',
+        'user_passwd': ''
+    },
+]
+
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'douban (+http://www.yourdomain.com)'
 
@@ -60,9 +82,10 @@ DEFAULT_REQUEST_HEADERS = {
 
 # Enable or disable downloader middlewares
 # See http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
-#DOWNLOADER_MIDDLEWARES = {
-#    'douban.middlewares.MyCustomDownloaderMiddleware': 543,
-#}
+DOWNLOADER_MIDDLEWARES = {
+    'douban.middlewares.RandomUserAgent': 100,
+    'douban.middlewares.RandomProxy': 200,
+}
 
 # Enable or disable extensions
 # See http://scrapy.readthedocs.org/en/latest/topics/extensions.html
