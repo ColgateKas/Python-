@@ -14,6 +14,11 @@ BOT_NAME = 'tencent'
 SPIDER_MODULES = ['tencent.spiders']
 NEWSPIDER_MODULE = 'tencent.spiders'
 
+# #保存日志信息的文件名
+# LOG_FILE = "tencent.log"
+# #保存日志等级
+# LOG_LEVEL = "DEBUG"
+
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'tencent (+http://www.yourdomain.com)'
 

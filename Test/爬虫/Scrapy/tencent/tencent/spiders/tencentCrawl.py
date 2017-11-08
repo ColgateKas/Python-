@@ -2,11 +2,11 @@
 import scrapy
 from scrapy.linkextractors import LinkExtractor
 from scrapy.spiders import CrawlSpider, Rule
-from tencentCrawl.items import TencentcrawlItem
+from tencent.items import TencentItem
 
 
 class TencentSpider(CrawlSpider):
-    name = 'tencent'
+    name = 'tencentCrawl'
     allowed_domains = ['tencent.com']
     start_urls = ['http://hr.tencent.com/position.php?&start=0#a']
 
@@ -17,7 +17,7 @@ class TencentSpider(CrawlSpider):
     def parse_item(self, response):
         each_line = response.xpath('//tr[@class="even"]|//tr[@class="odd"]')
         for each in each_line:
-            item = TencentcrawlItem()
+            item = TencentItem()
             #职位名称
             item['positionName'] = each.xpath("./td[1]/a/text()").extract_first()
             #职位链接
